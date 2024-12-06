@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Simple Calculator</title>
+    <link rel="icon" type="image/png" href="laww.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        let expression = '';
+        
+        function press(value) {
+            expression += value;
+            updateDisplay();
+        }
+        
+        function calculate() {
+            try {
+                const result = eval(expression);
+                expression = result.toString();
+                updateDisplay();
+            } catch (error) {
+                console.log("Error: Invalid Expression!");
+                expression = '';
+            }
+        }
+
+        function clearConsole() {
+            expression = '';
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById("display").innerText = expression || '0';
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+ <!-- Header -->
+ <header class="bg-green-800 text-white py-4">
+    <div class="container mx-auto text-center">
+        <h1 class="text-3xl font-bold">My Portfolio</h1>
+    </div>
+</header>
+
+<div class="container mx-auto px-4 py-8 flex flex-col md:flex-row">
+
+ <!-- Navigation Menu -->
+ <nav class="w-full md:w-1/4 mb-8 md:mb-0">
+    <ul class="bg-white shadow-md rounded-lg p-4">
+        <li class="mb-2"><a href="home.html" class="text-green-600 hover:text-green-800">Home</a></li>
+        <li class="mb-2"><a href="about.html" class="text-green-600 hover:text-green-800">About Me</a></li>
+        <li class="mb-2"><a href="portofolio.html" class="text-green-600 hover:text-green-800">Portfolio</a></li>
+        <li class="mb-2"><a href="calculator.html" class="text-green-600 hover:text-green-800">Calculator</a></li>
+        <li><a href="registrationForm.html" class="text-green-600 hover:text-green-800">Registration Form</a></li>
+    </ul>
+</nav>
+
+<!--main-->
+<main class="w-full md:w-2/4 md:mx-4">
+    <div class="bg-white shadow-md rounded-lg p-6">
+    <h1 class="text-3xl font-bold mb-4">A Simple Calculator</h1>
+    <div class="calculator-container mb-4">
+        <p id="display" class="bg-gray-200 text-right p-4 rounded-lg text-2xl">0</p>
+
+        <div class="grid grid-cols-4 gap-2 mt-4">
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('7')">7</button>
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('8')">8</button>
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('9')">9</button>
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('/')">/</button>
+
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('4')">4</button>
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('5')">5</button>
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('6')">6</button>
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('*')">*</button>
+
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('1')">1</button>
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('2')">2</button>
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('3')">3</button>
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('-')">-</button>
+
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('0')">0</button>
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('.')">.</button>
+            <button class="bg-red-500 text-white p-4 rounded-lg" onclick="clearConsole()">C</button>
+            <button class="bg-green-600 text-white p-4 rounded-lg" onclick="press('+')">+</button>
+
+            <button class="bg-green-600 text-white p-4 rounded-lg col-span-4" onclick="calculate()">=</button>
+        </div>
+    </div>
+</main>
+
+<!-- Aside Section -->
+<aside class="w-full md:w-1/4 mt-8 md:mt-0">
+    <div class="bg-white shadow-md rounded-lg p-4">
+        <h3 class="text-xl font-bold text-center mb-4">My Site</h3>
+        <p>
+            Hello there, welcome to my humble website.<br>
+            Please do understand, this website was created as a portfolio of a responsive website.
+            This website is a final project from the Pemrograman Web 1 course.
+        </p>
+    </div>
+</aside>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-200 py-4 mt-8">
+<div class="container mx-auto text-center">
+    <p>
+        ps: please try to resize the browser. :)
+    </p>
+</div>
+</footer>
+</body>
+</html>
